@@ -1,0 +1,605 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Sep 19, 2018 at 10:53 AM
+-- Server version: 5.6.40
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `kanish_kanishGroupDb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acp`
+--
+
+CREATE TABLE `acp` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `acp`
+--
+
+INSERT INTO `acp` (`id`, `image`) VALUES
+(21, 'O2.jpg'),
+(22, 'O4.jpg'),
+(23, 'O3.jpg'),
+(24, 'O1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acrylic`
+--
+
+CREATE TABLE `acrylic` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `acrylic`
+--
+
+INSERT INTO `acrylic` (`id`, `image`) VALUES
+(28, 'S2.jpg'),
+(27, 'S1.jpg'),
+(26, 'S3.jpg'),
+(25, 'acrylic-print4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `canvas`
+--
+
+CREATE TABLE `canvas` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `canvas`
+--
+
+INSERT INTO `canvas` (`id`, `image`) VALUES
+(19, 'canvas-print.jpg'),
+(30, 'Q4.jpg'),
+(31, 'Q1.jpg'),
+(32, 'Q3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carving`
+--
+
+CREATE TABLE `carving` (
+  `id` int(11) NOT NULL,
+  `waveboard` varchar(255) NOT NULL,
+  `grillboard` varchar(255) NOT NULL,
+  `multiwood` varchar(255) NOT NULL,
+  `mdf` varchar(255) NOT NULL,
+  `wood` varchar(255) NOT NULL,
+  `faceengraving` varchar(255) NOT NULL,
+  `faceembossing` varchar(255) NOT NULL,
+  `vbitcarving` varchar(255) NOT NULL,
+  `acpcutting` varchar(255) NOT NULL,
+  `cuttingcarving` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `carving`
+--
+
+INSERT INTO `carving` (`id`, `waveboard`, `grillboard`, `multiwood`, `mdf`, `wood`, `faceengraving`, `faceembossing`, `vbitcarving`, `acpcutting`, `cuttingcarving`, `image`) VALUES
+(12, '', '', '', 'dummyimg4.jpg', '', '', '', '', '', '', ''),
+(34, '', '02.jpg', '', '', '', '', '', '', '', '', ''),
+(58, '', '', 'multiwood01.jpg', '', '', '', '', '', '', '', ''),
+(42, '', '', '', '', '', '', '', 'vbit4.jpg', '', '', ''),
+(44, '', '', '', '', '', '', '', 'vbit5.jpg', '', '', ''),
+(43, '', '', '', '', '', '', '', 'vbit2.jpg', '', '', ''),
+(41, '', '', '', '', '', '', '', 'vbit3.jpg', '', '', ''),
+(40, '', '', '', '', '', '', '', 'vbit1.jpg', '', '', ''),
+(24, 'waveboar01.jpg', '', '', '', '', '', '', '', '', '', ''),
+(25, 'waveboar02.jpg', '', '', '', '', '', '', '', '', '', ''),
+(26, 'waveboar03.jpg', '', '', '', '', '', '', '', '', '', ''),
+(27, 'waveboar04.jpg', '', '', '', '', '', '', '', '', '', ''),
+(32, '', '01.jpg', '', '', '', '', '', '', '', '', ''),
+(33, '', '02.jpg', '', '', '', '', '', '', '', '', ''),
+(35, '', '04.jpg', '', '', '', '', '', '', '', '', ''),
+(54, '', '', '', '', '', '', 'face01.jpg', '', '', '', ''),
+(55, '', '', '', '', '', '', 'face02.jpg', '', '', '', ''),
+(56, '', '', '', '', '', '', 'face03.jpg', '', '', '', ''),
+(45, '', '', '', '', '', '', '', 'vbit6.jpg', '', '', ''),
+(46, '', '', '', '', '', '', '', 'vbit7.jpg', '', '', ''),
+(47, '', '', '', '', '', '', '', 'vbit8.jpg', '', '', ''),
+(48, '', '', '', '', '', '', 'embossing01.jpg', '', '', '', ''),
+(49, '', '', '', '', '', '', 'embossing02.jpg', '', '', '', ''),
+(50, '', '', '', '', '', '', 'embossing03.jpg', '', '', '', ''),
+(52, '', '', '', '', '', '', 'embossing04.jpg', '', '', '', ''),
+(57, '', '', '', '', '', '', 'face04.jpg', '', '', '', ''),
+(59, '', '', 'multiwood02.jpg', '', '', '', '', '', '', '', ''),
+(60, '', '', 'multiwood03.jpg', '', '', '', '', '', '', '', ''),
+(61, '', '', 'multiwood04.jpg', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forex`
+--
+
+CREATE TABLE `forex` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forex`
+--
+
+INSERT INTO `forex` (`id`, `image`) VALUES
+(22, 'R2.jpg'),
+(21, 'R4.jpg'),
+(23, 'R3.jpg'),
+(24, 'R1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `formboard`
+--
+
+CREATE TABLE `formboard` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formboard`
+--
+
+INSERT INTO `formboard` (`id`, `image`) VALUES
+(7, 'L3.jpg'),
+(6, 'L1.jpg'),
+(8, 'L4.jpg'),
+(9, 'L2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hylamsheet`
+--
+
+CREATE TABLE `hylamsheet` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hylamsheet`
+--
+
+INSERT INTO `hylamsheet` (`id`, `image`) VALUES
+(26, 'P1.jpg'),
+(27, 'P3.jpg'),
+(25, 'P4.jpg'),
+(24, 'P2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `interiorworks`
+--
+
+CREATE TABLE `interiorworks` (
+  `id` int(11) NOT NULL,
+  `kitchenCupboard` varchar(255) NOT NULL,
+  `modularKitchen` varchar(255) NOT NULL,
+  `walldrobe` varchar(255) NOT NULL,
+  `cupboard` varchar(255) NOT NULL,
+  `coat` varchar(255) NOT NULL,
+  `diningTable` varchar(255) NOT NULL,
+  `canvasWall` varchar(255) NOT NULL,
+  `kidsRoom` varchar(255) NOT NULL,
+  `grillBoardPartition` varchar(255) NOT NULL,
+  `waveBoards` varchar(255) NOT NULL,
+  `carving3d` varchar(255) NOT NULL,
+  `flowerPots` varchar(255) NOT NULL,
+  `mugap` varchar(255) NOT NULL,
+  `thooma` varchar(255) NOT NULL,
+  `slatwall` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `interiorworks`
+--
+
+INSERT INTO `interiorworks` (`id`, `kitchenCupboard`, `modularKitchen`, `walldrobe`, `cupboard`, `coat`, `diningTable`, `canvasWall`, `kidsRoom`, `grillBoardPartition`, `waveBoards`, `carving3d`, `flowerPots`, `mugap`, `thooma`, `slatwall`, `image`) VALUES
+(143, '', 'modularKitchen', '', '', '', '', '', '', '', '', '', '', '', '', '', 'X3.jpg'),
+(111, '', '', 'walldrobe', '', '', '', '', '', '', '', '', '', '', '', '', 'M1.jpg'),
+(130, 'kitchenCupboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'U2.jpg'),
+(144, '', 'modularKitchen', '', '', '', '', '', '', '', '', '', '', '', '', '', 'X2.jpg'),
+(110, '', '', 'walldrobe', '', '', '', '', '', '', '', '', '', '', '', '', 'M2.jpg'),
+(109, '', '', 'walldrobe', '', '', '', '', '', '', '', '', '', '', '', '', 'M3.jpg'),
+(133, '', '', '', '', 'coat', '', '', '', '', '', '', '', '', '', '', 'V1.jpg'),
+(60, '', '', '', '', '', 'diningTable', '', '', '', '', '', '', '', '', '', 'dining2.jpg'),
+(96, '', '', '', '', '', 'diningTable', '', '', '', '', '', '', '', '', '', 'K2.jpg'),
+(101, '', '', '', 'cupboard', '', '', '', '', '', '', '', '', '', '', '', 'O3.jpg'),
+(113, '', '', '', '', '', '', 'canvasWall', '', '', '', '', '', '', '', '', 'Q2.jpg'),
+(112, '', '', '', '', '', '', 'canvasWall', '', '', '', '', '', '', '', '', 'Q4.jpg'),
+(136, '', '', '', '', '', '', '', 'kidsRoom', '', '', '', '', '', '', '', 'W3.jpg'),
+(137, '', '', '', '', '', '', '', 'kidsRoom', '', '', '', '', '', '', '', 'W2.jpg'),
+(33, '', '', '', '', '', '', '', '', 'grillBoardPartition', '', '', '', '', '', '', '02.jpg'),
+(32, '', '', '', '', '', '', '', '', 'grillBoardPartition', '', '', '', '', '', '', '01.jpg'),
+(34, '', '', '', '', '', '', '', '', 'grillBoardPartition', '', '', '', '', '', '', '03.jpg'),
+(36, '', '', '', '', '', '', '', '', 'grillBoardPartition', '', '', '', '', '', '', '04.jpg'),
+(121, '', '', '', '', '', '', '', '', '', '', '', '', 'mugap', '', '', 'D1A.jpg'),
+(67, '', '', '', '', '', '', '', '', '', 'waveBoards', '', '', '', '', '', '01.jpg'),
+(68, '', '', '', '', '', '', '', '', '', 'waveBoards', '', '', '', '', '', '02.jpg'),
+(129, 'kitchenCupboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'U1.jpg'),
+(106, 'kitchenCupboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L4.jpg'),
+(95, '', '', '', '', '', 'diningTable', '', '', '', '', '', '', '', '', '', 'K3.jpg'),
+(62, '', '', '', '', '', 'diningTable', '', '', '', '', '', '', '', '', '', '24.jpg'),
+(99, '', '', '', 'cupboard', '', '', '', '', '', '', '', '', '', '', '', 'O1.jpg'),
+(100, '', '', '', 'cupboard', '', '', '', '', '', '', '', '', '', '', '', 'O2.jpg'),
+(97, '', '', '', 'cupboard', '', '', '', '', '', '', '', '', '', '', '', 'L3.jpg'),
+(69, '', '', '', '', '', '', '', '', '', 'waveBoards', '', '', '', '', '', '03.jpg'),
+(70, '', '', '', '', '', '', '', '', '', 'waveBoards', '', '', '', '', '', '04.jpg'),
+(122, '', '', '', '', '', '', '', '', '', '', '', '', 'mugap', '', '', 'D3A.jpg'),
+(123, '', '', '', '', '', '', '', '', '', '', '', '', 'mugap', '', '', 'D2A.jpg'),
+(124, '', '', '', '', '', '', '', '', '', '', '', '', 'mugap', '', '', 'D4A.jpg'),
+(79, '', '', '', '', '', '', '', '', '', '', '', '', '', 'thoomanam', '', 'thoomanam1.jpg'),
+(80, '', '', '', '', '', '', '', '', '', '', '', '', '', 'thoomanam', '', 'thoomanam2.jpg'),
+(151, '', '', '', '', '', '', '', '', '', '', '', 'flowerPots', '', '', '', 'Y3.jpg'),
+(150, '', '', '', '', '', '', '', '', '', '', '', 'flowerPots', '', '', '', 'Y2.jpg'),
+(149, '', '', '', '', '', '', '', '', '', '', '', 'flowerPots', '', '', '', 'Y4.jpg'),
+(148, '', '', '', '', '', '', '', '', '', '', '', 'flowerPots', '', '', '', 'Y1.jpg'),
+(132, '', '', '', '', 'coat', '', '', '', '', '', '', '', '', '', '', 'V2.jpg'),
+(131, '', '', '', '', 'coat', '', '', '', '', '', '', '', '', '', '', 'V3.jpg'),
+(89, '', '', '', '', '', '', '', '', '', '', '', '', '', 'thoomanam', '', 'E2.jpg'),
+(90, '', '', '', '', '', '', '', '', '', '', '', '', '', 'thoomanam', '', 'E1.jpg'),
+(108, '', '', 'walldrobe', '', '', '', '', '', '', '', '', '', '', '', '', 'M4.jpg'),
+(107, 'kitchenCupboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'P1.jpg'),
+(114, '', '', '', '', '', '', 'canvasWall', '', '', '', '', '', '', '', '', 'Q1.jpg'),
+(115, '', '', '', '', '', '', 'canvasWall', '', '', '', '', '', '', '', '', 'Q3.jpg'),
+(116, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '01.jpg'),
+(117, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '02.jpg'),
+(118, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '03.jpg'),
+(119, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '04.jpg'),
+(125, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'slatWall', 'T2.jpg'),
+(126, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'slatWall', 'T4.jpg'),
+(127, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'slatWall', 'T3.jpg'),
+(128, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'slatWall', 'T1.jpg'),
+(135, '', '', '', '', 'coat', '', '', '', '', '', '', '', '', '', '', 'V4.jpg'),
+(138, '', '', '', '', '', '', '', 'kidsRoom', '', '', '', '', '', '', '', 'W1.jpg'),
+(139, '', '', '', '', '', '', '', 'kidsRoom', '', '', '', '', '', '', '', 'W4.jpg'),
+(152, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '05.jpg'),
+(146, '', 'modularKitchen', '', '', '', '', '', '', '', '', '', '', '', '', '', 'X1.jpg'),
+(147, '', 'modularKitchen', '', '', '', '', '', '', '', '', '', '', '', '', '', 'X4.jpg'),
+(153, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '06.jpg'),
+(154, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '07.jpg'),
+(155, '', '', '', '', '', '', '', '', '', '', 'carving3d', '', '', '', '', '08.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mdf`
+--
+
+CREATE TABLE `mdf` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mdf`
+--
+
+INSERT INTO `mdf` (`id`, `image`) VALUES
+(17, 'M1.jpg'),
+(16, 'M2.jpg'),
+(15, 'M3.jpg'),
+(14, 'M4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `printing`
+--
+
+CREATE TABLE `printing` (
+  `id` int(11) NOT NULL,
+  `glass` varchar(255) NOT NULL,
+  `formboard` varchar(255) NOT NULL,
+  `mdf` varchar(255) NOT NULL,
+  `wpc` varchar(255) NOT NULL,
+  `acp` varchar(255) NOT NULL,
+  `hylamsheet` varchar(255) NOT NULL,
+  `canvas` varchar(255) NOT NULL,
+  `forex` varchar(255) NOT NULL,
+  `acrylic` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `printing`
+--
+
+INSERT INTO `printing` (`id`, `glass`, `formboard`, `mdf`, `wpc`, `acp`, `hylamsheet`, `canvas`, `forex`, `acrylic`, `image`) VALUES
+(114, 'door', '', '', '', '', '', '', '', '', 'F2.jpg'),
+(5, 'partition', '', '', '', '', '', '', '', '', ''),
+(121, 'wall', '', '', '', '', '', '', '', '', 'H1.jpg'),
+(118, 'ceiling', '', '', '', '', '', '', '', '', 'G3.jpg'),
+(134, 'tabletop', '', '', '', '', '', '', '', '', 'K3.jpg'),
+(117, 'ceiling', '', '', '', '', '', '', '', '', 'G2.jpg'),
+(115, 'door', '', '', '', '', '', '', '', '', 'F4.jpg'),
+(113, 'door', '', '', '', '', '', '', '', '', 'F3.jpg'),
+(112, 'door', '', '', '', '', '', '', '', '', 'F1.jpg'),
+(116, 'ceiling', '', '', '', '', '', '', '', '', 'G1.jpg'),
+(120, 'wall', '', '', '', '', '', '', '', '', 'H4.jpg'),
+(119, 'ceiling', '', '', '', '', '', '', '', '', 'G4.jpg'),
+(127, 'handrails', '', '', '', '', '', '', '', '', 'I1.jpg'),
+(126, 'handrails', '', '', '', '', '', '', '', '', 'I4.jpg'),
+(125, 'handrails', '', '', '', '', '', '', '', '', 'I2.jpg'),
+(124, 'handrails', '', '', '', '', '', '', '', '', 'I3.jpg'),
+(123, 'wall', '', '', '', '', '', '', '', '', 'H3.jpg'),
+(122, 'wall', '', '', '', '', '', '', '', '', 'H2.jpg'),
+(132, 'tabletop', '', '', '', '', '', '', '', '', 'K1.jpg'),
+(133, 'tabletop', '', '', '', '', '', '', '', '', 'K2.jpg'),
+(107, '', '01.jpg', '', '', '', '', '', '', '', ''),
+(111, '', '', '', '', '', '', '', '', '', '02.jpg'),
+(110, '', '', '', '', '', '', '', '', '', '01.jpg'),
+(128, 'partitian', '', '', '', '', '', '', '', '', 'J2.jpg'),
+(129, 'partitian', '', '', '', '', '', '', '', '', 'J4.jpg'),
+(130, 'partitian', '', '', '', '', '', '', '', '', 'J1.jpg'),
+(131, 'partitian', '', '', '', '', '', '', '', '', 'J3.jpg'),
+(135, 'tabletop', '', '', '', '', '', '', '', '', 'K4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `decorativewindow` varchar(255) NOT NULL,
+  `diningtable` varchar(255) NOT NULL,
+  `chairtable` varchar(255) NOT NULL,
+  `mugap` varchar(255) NOT NULL,
+  `thoomanam` varchar(255) NOT NULL,
+  `interiorlights` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `decorativewindow`, `diningtable`, `chairtable`, `mugap`, `thoomanam`, `interiorlights`, `image`) VALUES
+(80, 'decorativewindow', '', '', '', '', '', 'decorativeWindow3.jpg'),
+(78, 'decorativewindow', '', '', '', '', '', 'decorativeWindow1.jpg'),
+(79, 'decorativewindow', '', '', '', '', '', 'decorativeWindow2.jpg'),
+(8, '', 'diningtable', '', '', '', '', 'diningTable1.jpg'),
+(9, '', 'diningtable', '', '', '', '', 'diningTable2.jpg'),
+(10, '', 'diningtable', '', '', '', '', 'diningTable3.jpg'),
+(12, '', 'diningtable', '', '', '', '', 'diningTable4.jpg'),
+(117, '', '', '', 'mugap', '', '', 'D4A.jpg'),
+(115, '', '', '', 'mugap', '', '', 'D3A.jpg'),
+(111, '', '', '', 'mugap', '', '', 'D1A.jpg'),
+(92, '', '', '', '', '', 'interiorlights', 'B7.jpg'),
+(86, '', '', '', '', '', 'interiorlights', 'B1.jpg'),
+(87, '', '', '', '', '', 'interiorlights', 'B3.jpg'),
+(51, '', '', '', '', 'thoomanam', '', 'thoomanam1.jpg'),
+(89, '', '', '', '', '', 'interiorlights', 'B4.jpg'),
+(88, '', '', '', '', '', 'interiorlights', 'B2.jpg'),
+(52, '', '', '', '', 'thoomanam', '', 'thoomanam2.jpg'),
+(90, '', '', '', '', '', 'interiorlights', 'B6.jpg'),
+(91, '', '', '', '', '', 'interiorlights', 'B8.jpg'),
+(81, 'decorativewindow', '', '', '', '', '', 'decorativeWindow4.jpg'),
+(84, '', '', 'chairtable', '', '', '', 'C4.jpg'),
+(83, '', '', 'chairtable', '', '', '', 'C3.jpg'),
+(82, '', '', 'chairtable', '', '', '', 'C2.jpg'),
+(116, '', '', '', 'mugap', '', '', 'D2A.jpg'),
+(93, '', '', '', '', '', 'interiorlights', 'B5.jpg'),
+(98, '', '', '', '', 'thoomanam', '', 'E1.jpg'),
+(99, '', '', '', '', 'thoomanam', '', 'E2.jpg'),
+(104, '', '', 'chairtable', '', '', '', 'K2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wpc`
+--
+
+CREATE TABLE `wpc` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wpc`
+--
+
+INSERT INTO `wpc` (`id`, `image`) VALUES
+(18, 'N2.jpg'),
+(17, 'N4.jpg'),
+(19, 'N3.jpg'),
+(20, 'N1.jpg');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `acp`
+--
+ALTER TABLE `acp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `acrylic`
+--
+ALTER TABLE `acrylic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `canvas`
+--
+ALTER TABLE `canvas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carving`
+--
+ALTER TABLE `carving`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `forex`
+--
+ALTER TABLE `forex`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `formboard`
+--
+ALTER TABLE `formboard`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hylamsheet`
+--
+ALTER TABLE `hylamsheet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `interiorworks`
+--
+ALTER TABLE `interiorworks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mdf`
+--
+ALTER TABLE `mdf`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `printing`
+--
+ALTER TABLE `printing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wpc`
+--
+ALTER TABLE `wpc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `acp`
+--
+ALTER TABLE `acp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `acrylic`
+--
+ALTER TABLE `acrylic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `canvas`
+--
+ALTER TABLE `canvas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `carving`
+--
+ALTER TABLE `carving`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT for table `forex`
+--
+ALTER TABLE `forex`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `formboard`
+--
+ALTER TABLE `formboard`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `hylamsheet`
+--
+ALTER TABLE `hylamsheet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `interiorworks`
+--
+ALTER TABLE `interiorworks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+
+--
+-- AUTO_INCREMENT for table `mdf`
+--
+ALTER TABLE `mdf`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `printing`
+--
+ALTER TABLE `printing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+
+--
+-- AUTO_INCREMENT for table `wpc`
+--
+ALTER TABLE `wpc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

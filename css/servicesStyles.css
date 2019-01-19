@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.toggleWrapper{ position:relative; width:100%;   }
+.toggleWrapper ul{ margin:0em 0em 1em 0em; padding:0; list-style:none; width:100%; float:left;}
+.toggleWrapper ul li{ padding:0.2em 0em; position:relative; float:left; width:100%;  }
+
+.toggleWrapper ul h2{color:#000; text-align:center; font-size:2.4vw; display:block;  text-transform:uppercase; font-weight:bold; line-height:auto; }
+
+.toggleWrapper ul li i{ font-size:2em; width:100%; line-height:1.6em; font-style:normal; display:block; border:2px solid rgb(244,119,32); padding-left:0.6em; margin-bottom:0.4em; cursor:pointer; }
+
+.toggleWrapper ul li i.active{ border:3px solid rgb(244,119,32); background:rgb(244,119,32); color:#fff; transition:all 0.2s;  }
+
+.toggleWrapper ul li i.active::before{ content:''; width:1em; height:1em; background:rgb(244,119,32); position:absolute; top:1.2em; left:1em;  transform:rotate(45deg); z-index:-10; }
+
+.toggleWrapper ul li i.active::after{ content:''; border-right:25px solid transparent; border-left:25px solid transparent; border-top:25px solid #fff; position:absolute; top:0.7em; right:0.8em; transition:all 0.2s; }
+
+
+
+.toggleWrapper ul li i div.plussymbol{ content:''; width:25px; height:4px; position:absolute; top:1em; right:1.1em; background:rgb(244,119,32); float:right; }
+
+.toggleWrapper ul li i div.plussymbol:before{ content:''; width:25px; height:4px; position:absolute; top:0em; right:0em; background:rgb(216,100,135); float:right; transform:rotate(90deg); transition:all 0.2s; }
+
+.toggleWrapper ul li i div.minusymbol{ content:''; width:25px; height:4px; position:absolute; top:1em; right:2em; background:#000; float:right; }
+.toggleWrapper ul li i div.minussymbol::before{ content:''; width:25px; height:4px; position:absolute; top:0em; right:0em; background:#000; float:right; transform:rotate(0deg); transition:all 0.2s; }
+
+.toggleWrapper ul span{ font-size:1.2em; font-style:normal; display:none; width:100%; margin:0.6em 0% 2% 0%; float:left; border:1px solid #999; padding:0.6em; overflow:visible; }
+
+.toggleWrapper ul span h3{ text-align:center; text-transform:uppercase; font-size:1.6vw; white-space:pre;  font-weight:bold; margin:0; padding:0; display:table; width:10%; margin:0px auto 0.6em auto;  }
+.toggleWrapper ul span h3::after{ content:''; display:block; width:100%; height:3px; background:rgb(244,119,32); }
+
+.toggleWrapper ul span p{ width:60%; float:left; padding:0.5em; text-align:justify;}
+
+
+.toggleWrapper ul span ul{ position:relative; width:100%; float:left;}
+.toggleWrapper ul span ul li{ position:relative; width:20%;  display:block; float:left; background:#ccc; text-align:center; margin-right:6.667%; margin-bottom:1em; overflow:hidden; padding:0; border:2px solid rgb(244,119,32); border-radius:0.7em; }
+.toggleWrapper ul span ul li img{ max-width:100%; height:auto; display:block; }
+.toggleWrapper ul span ul li:nth-child(4n){  margin-right:0%; }
+
+.toggleImage{ position:relative; width:40%; float:left; }
+.toggleImage img{ max-width:100%; height:auto; display:block; }
+
+.moreBtn{ background:rgb(244,119,32); color:#fff; padding:0.3em 1em; text-align:center; font-size:1.4em; margin:0px auto; display:table; border-radius:0.3em; text-decoration:none;  cursor:pointer;}
+.moreBtn:hover{ color:#000; transition:all 1s;}
+.subDiv{ display:none; }
+
+
+.produtsWrapper{ position:relative; width:100%; color:#000; text-align:center; display:block;   font-weight:bold; line-height:auto;   }
+.produtsWrapperInner{ position:relative; width:100%; margin:1em auto 2em auto; float:left; }
+
+.produtsWrapperInner h2{ color:rgb(244,119,32); font-weight:bold; font-size:2em; text-transform:uppercase; margin:0; padding:0; display:block; clear:both; }
+.imgWrapper{ position:relative; width:100%; margin:1em auto; display:block; padding:0; float:none; clear:both;}
+.imgWrapper ul{ position:relative; margin:0; padding:0; list-style:none; width:100%;}
+.imgWrapper ul li{ position:relative; width:24%; margin-right:1.333%;margin-bottom:1em; float:left; border:2px solid rgb(244,119,32);}
+.imgWrapper ul li:nth-child(4n){ margin-right:0%; }
+.imgWrapper ul li img{ max-width:100%; height:auto; display:block;}
+
+@media screen and (max-width:768px){	
+	.toggleWrapper ul h2{font-size:3.4vw; display:block;  text-transform:uppercase; font-weight:bold; line-height:auto; }
+	
+	.toggleWrapper ul span ul{ position:relative; width:100%; float:left;}
+	.toggleWrapper ul span ul li{ position:relative; width:80%;  float:none; font-size:1vw; margin:0% auto 5vw auto;  }
+	.toggleWrapper ul li{ padding:0em 0em; margin:0.5em 0em; position:relative; float:none; width:100%;  }
+
+	.toggleWrapper ul span ul li img{ max-width:100%; height:auto; display:block; }
+	.toggleWrapper ul span ul li:nth-child(4n){ margin:2em auto 2em auto; float:none;}
+	
+	.toggleWrapper ul li i{ font-size:3vw; line-height:1.6em; }
+	
+	.toggleWrapper ul span h3{ text-align:center; text-transform:uppercase; font-size:2.6vw;  font-weight:bold; margin:0; padding:0; display:table; width:10%; margin:0px auto 0.6em auto;  }
+	.toggleWrapper ul span h3::after{ content:''; display:block; width:100%; height:3px; background:rgb(244,119,32); }
+	
+	.imgWrapper ul li{ position:relative; width:80%; margin:1em auto 1em auto; float:none; }
+	.imgWrapper ul li:nth-child(4n){ margin:1em auto 1em auto; }
+	
+}
+
+@media screen and (min-width:300px) and (max-width:414px){
+	
+	.toggleWrapper ul h2{font-size:5.4vw; display:block;  text-transform:uppercase; font-weight:bold; line-height:auto; }
+	
+	.toggleWrapper ul span ul{ position:relative; width:100%; float:left;}
+	.toggleWrapper ul span ul li{ position:relative; width:90%;  float:none; font-size:1vw; margin:0% auto 5vw auto;  }
+	.toggleWrapper ul li{ padding:0em 0em; margin:0.5em 0em; position:relative; float:none; width:100%;  }
+
+	.toggleWrapper ul span ul li img{ max-width:100%; height:auto; display:block; }
+	.toggleWrapper ul span ul li:nth-child(4n){ margin:2em auto 2em auto; float:none;}
+	
+	.toggleWrapper ul li i{ font-size:6vw; line-height:1.6em; }
+	
+	.toggleWrapper ul span h3{ text-align:center; text-transform:uppercase; font-size:3.6vw;  font-weight:bold; margin:0; padding:0; display:table; width:10%; margin:0px auto 0.6em auto;  }
+	.toggleWrapper ul span h3::after{ content:''; display:block; width:100%; height:3px; background:rgb(244,119,32); }
+	
+	.imgWrapper ul li{ position:relative; width:80%; margin:1em auto 1em auto; float:none; }
+	.imgWrapper ul li:nth-child(4n){ margin:1em auto 1em auto; }
+}

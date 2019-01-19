@@ -1,0 +1,54 @@
+.log img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding-top: 30px;
+  margin-top: 50px;
+  border-style: solid;
+  border-color: red;
+  border-width: 5px;
+  }
+
+.log {
+  font-family: arial;
+  padding-top: 30px;
+  margin-top: 50px;
+  border-style: solid;
+  border-color: red;
+  border-width: 5px;
+}
+
+a{
+  font-style: italic;
+  font-family: arial;
+}
+
+bbody{
+  font-size: 45px;
+  font-weight: bold;
+  font-family: arial;
+  border-style: solid;
+  border-color: red;
+  border-width: 5px;
+}
+
+.topIcon img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.topIcon {
+    position: relative;
+    margin-top: 2em;
+    margin-right: 1em;
+    width: 20%;
+    float: right;
+    text-align: right;
+  }
+
+p{
+  font-size: 96px;
+  font-family: sans-serif;
+}

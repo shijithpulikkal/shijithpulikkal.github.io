@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+   font-family: ptSans;
+   src: url(PTS75F.ttf);
+}
+
+body{ background-image:url(images/pagebg.jpg); background-repeat:no-repeat; background-color:#fff; margin:0; padding:0; }
+.header{ width:100%; position:relative; background:rgb(58,104,131); float:left; clear:both; margin-top:0em;}
+.headerInner{ width:90%; position:relative; float:left; margin:0% 0% 0% 10%; border:0px solid #fff;}
+.logo{ float:left; width:15%; margin:0.5em 0em;  }
+.logo img{ max-width:100%; height:auto; display:block;} 
+
+.kartwrapper{ position:relative; background-size:cover; padding:10vw; 
+background-image:url(kart_bg.jpg); background-repeat:no-repeat; width:80%; margin:0px 0% 0% 10%; float:left; font-size:1.2em;  }
+
+iframe.iFrame{ position:absolute; top:30%; width:15%; height:10vw; float:right; right:5%; display:block; border:none; overflow:hidden; z-index:10;}
+
+.kartLogo{ psotion:relative; width:30%; margin:0em auto;  }
+.kartLogo img{ max-width:100%; height:auto; display:block; }
+
+
+span.title{ position:relative; margin:20% auto 0% auto; text-transform:uppercase; text-align:center; font-weight:bold; display:block;  color:rgb(255,255,255); text-shadow:4px 2px 2px #000;  font-size:2vw; z-index:99999999;}
+
+
+
+.wrapper{ position:relative; width:80%; margin:3em 0% 0% 10%; float:left; font-size:1.2em;   }
+.wrapper h1{ position:relative; text-align:center; margin:0em auto 1em auto; padding:0; color:#000; text-transform:uppercase; display:table; font-weight:bold;  }
+.wrapper h1::after{ content:''; width:100%; height:2px; display:block; background:#000; }
+.wrapper h1 span{ color:rgb(244,119,32);}
+
+.productList ul{ margin-bottom:0em;  padding:0; list-style:none; position:relative; float:right; right:50%;   }
+.productList ul li{ font-size:1.4em; position:relative; float:left; left:50%; margin-right:1em;  }
+.productList ul li:last-child{ margin-right:0em;  }
+.productList ul li i{ color:rgb(244,119,32); font-size:0.85em; }
+
+
+.imageDiv{ position:relative; width:80%; float:none; margin:1em auto;  }
+.imageDiv ul{ position:relative; list-style:none; float:right; margin-top:1em; right:50%;}
+.imageDiv ul li{ position:relative; width:20%; margin-right:6.667%; margin-bottom:1em; float:left; left:50%; border:2px solid rgb(244,119,32); }
+
+.imageDiv ul li img{ max-width:100%; height:auto; display:block; }
+
+.imageDiv ul li:nth-child(4n){ margin-right:0%; }
+
+.engineering{ position:relative; width:30%; margin:1em auto; clear:both; }
+.engineering img{ max-width:100%; height:auto; display:block; }
+
+
+footer{ position:relative; width:100%; line-height:3em; background:rgb(58,104,131); margin:1em 0em 0em 0em; float:left; display:block; color:#fff; text-align:center; overflow:hidden;}
+
+/* media query */
+
+
+@media screen and (max-width:768px){
+span.title{ font-size:4vw;}
+	.kartwrapper{ position:relative; background-size:cover; padding:10vw;
+width:100%; margin:0px 0% 0% 0%; float:left; font-size:1.2em; overflow:hidden; }
+
+	.wrapper{ position:relative; width:100%; margin:2em 0% 0% 0%; float:left; font-size:1.2em;   }
+	.productList ul{ margin-top:0em;  padding:0; list-style:none; position:relative; float:none; right:0%;   }
+	.productList ul li{ font-size:1.4em; position:relative; float:none; left:35%; margin-right:0em; 	}
+	
+	.imageDiv{ position:relative; width:100%; float:none; margin:0px auto; }
+	.imageDiv ul{ position:relative; list-style:none; float:none; right:0%;}
+	.imageDiv ul li{ position:relative; width:60%; margin:0% auto 1em auto;  float:none; left:0%; border:2px solid rgb(244,119,32); }
+	
+	.imageDiv ul li img{ min-width:100%; height:auto; display:block; }
+	.imageDiv ul li:nth-child(4n){ margin:0% auto 1em auto; }
+	
+}
+
+@media screen and (min-width:300px) and (max-width:414px){
+
+.engineering{ position:relative; width:100%; margin:1em auto; clear:both;  }
+.engineering img{ min-width:100%; height:auto; display:block; }
+
+span.title{ font-size:6vw;}
+	.wrapper h1{ font-size:1.8em; margin:2em auto 1em auto;}	
+	.kartLogo{ psotion:relative; width:70%; margin:0em auto;  }
+	.kartwrapper{ position:relative; background-size:cover; padding:10vw;
+width:100%; margin:0px 0% 0% 0%; float:left; font-size:1.2em; overflow:hidden; }
+
+	.wrapper{ position:relative; width:100%; margin:2em 0% 0% 0%; float:left; font-size:1.2em;  overflow:hidden; }
+	.productList ul{ margin-top:0em;  padding:0; list-style:none; position:relative; float:none; right:0%;   }
+	.productList ul li{ font-size:1.2em; position:relative; float:none; left:35%; margin-right:0em; 	}
+	
+	.imageDiv{ position:relative; width:100%; float:none; margin:0px auto; }
+	.imageDiv ul{ position:relative; list-style:none; float:none; right:0%;}
+	.imageDiv ul li{ position:relative; width:80%; margin:0% auto 1em 5%;  float:none; left:0%; border:2px solid rgb(244,119,32); }
+	
+	.imageDiv ul li img{ min-width:100%; height:auto; display:block; }
+	.imageDiv ul li:nth-child(4n){ margin:0% auto 1em 5%; }
+	
+}
+
+
