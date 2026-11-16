@@ -40,16 +40,19 @@
   if (!gal) return;
 
   const params = new URLSearchParams(location.search);
-  const tool = params.get('tool') === 'powerbi' ? 'powerbi' : 'looker';
-  const toolName = tool === 'powerbi' ? 'Power BI' : 'Looker Studio';
+  const TOOLS = { looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel' };
+  const tool = TOOLS[params.get('tool')] ? params.get('tool') : 'looker';
+  const toolName = TOOLS[tool];
   const items = DASH.filter(d => d.tool === tool);
+  const hasLive = items.some(d => d.url);
   let filter = 'All';
   let view = items;
 
   document.title = `${toolName} Dashboards · Shijith Pulikkal`;
   document.getElementById('gal-title').textContent = `${toolName} Dashboards`;
-  document.getElementById('gal-sub').textContent =
-    `${items.length} dashboards · every one opens a live, clickable report · data is anonymised or sample data`;
+  document.getElementById('gal-sub').textContent = hasLive
+    ? `${items.length} dashboards · every one opens a live, clickable report · data is anonymised or sample data`
+    : `${items.length} dashboards · click any one to view it full size · data is anonymised or sample data`;
   document.querySelectorAll('.switch a').forEach(a => a.setAttribute('aria-current', a.dataset.tool === tool ? 'true' : 'false'));
 
   // filter chips, ordered by count
@@ -89,7 +92,12 @@
     lb.querySelector('[data-f=cat]').textContent = d.cat;
     lb.querySelector('[data-f=tool]').textContent = toolName;
     lb.querySelector('[data-f=topic]').textContent = d.cat;
-    lb.querySelector('[data-f=link]').href = d.url;
+    const link = lb.querySelector('[data-f=link]');
+    link.href = d.url || d.img;
+    link.querySelector('.lbl').textContent = d.url ? 'Open live dashboard' : 'View full size';
+    lb.querySelector('.note').textContent = d.url
+      ? 'Opens the interactive report in a new tab. Data is anonymised or sample data.'
+      : 'Opens the full-size image in a new tab. Data is anonymised or sample data.';
     lb.querySelector('[data-f=count]').textContent = `${cur + 1} of ${view.length}`;
     // preload neighbours
     [cur + 1, cur - 1].forEach(j => { const n = view[(j + view.length) % view.length]; if (n) new Image().src = n.img; });

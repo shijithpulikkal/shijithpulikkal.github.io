@@ -19,6 +19,15 @@ window.CATEGORIES = [
   "count": 7
  },
  {
+  "id": "sheets",
+  "title": "Google Sheets & Excel Dashboards",
+  "kind": "dashboards",
+  "url": "dashboards.html?tool=sheets",
+  "cover": "assets/covers/sheets.webp",
+  "blurb": "KPI, sales and operations dashboards built in Google Sheets and Excel.",
+  "count": 10
+ },
+ {
   "id": "interiors",
   "title": "Interior Samples",
   "kind": "album",
@@ -619,5 +628,95 @@ window.DASHBOARDS = [
   "img": "assets/dashboards/looker-amazon-v3.webp",
   "w": 1200,
   "h": 900
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard A1",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-a1.webp",
+  "url": "",
+  "w": 1600,
+  "h": 860
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard A2",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-a2.webp",
+  "url": "",
+  "w": 1600,
+  "h": 862
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard A3",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-a3.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard A4",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-a4.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard B1",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-b1.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard B2",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-b2.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard B3",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-b3.webp",
+  "url": "",
+  "w": 1600,
+  "h": 862
+ },
+ {
+  "tool": "sheets",
+  "title": "Google Sheets Dashboard B4",
+  "cat": "Google Sheets",
+  "img": "assets/dashboards/sheets-google-sheets-dashboard-b4.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Excel Dashboard A1",
+  "cat": "Excel",
+  "img": "assets/dashboards/sheets-excel-dashboard-a1.webp",
+  "url": "",
+  "w": 1600,
+  "h": 863
+ },
+ {
+  "tool": "sheets",
+  "title": "Excel Dashboard A2",
+  "cat": "Excel",
+  "img": "assets/dashboards/sheets-excel-dashboard-a2.webp",
+  "url": "",
+  "w": 1600,
+  "h": 862
  }
 ];
