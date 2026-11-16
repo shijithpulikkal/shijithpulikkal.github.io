@@ -28,14 +28,6 @@ window.CATEGORIES = [
   "count": 10
  },
  {
-  "id": "interiors",
-  "title": "Interior Samples",
-  "kind": "album",
-  "url": "https://photos.app.goo.gl/gACr9KE3qc2cKcsv9",
-  "cover": "assets/covers/interiors.webp",
-  "blurb": "Feature walls, murals, partitions and interior visualisations."
- },
- {
   "id": "illustrations",
   "title": "Illustrations & Wallpaper",
   "kind": "album",
