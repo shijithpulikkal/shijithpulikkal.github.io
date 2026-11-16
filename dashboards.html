@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboards · Shijith Pulikkal</title>
+  <meta name="description" content="Looker Studio and Power BI dashboard samples by Shijith Pulikkal (Xtract Studio). Every thumbnail opens a live report.">
+  <meta name="theme-color" content="#002B3D">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="index.html">Shijith<span>.</span>Pulikkal</a>
+      <ul>
+        <li class="hide-xs"><a href="index.html">Home</a></li>
+        <li class="hide-sm"><a href="index.html#work">My work</a></li>
+        <li><a href="dashboards.html?tool=looker" aria-current="page">Dashboards</a></li>
+        <li><a class="cta" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="gal-head">
+      <span class="tagline">Data visualisation</span>
+      <h1 id="gal-title">Dashboards</h1>
+      <p class="sub" id="gal-sub"></p>
+      <div class="switch" role="navigation" aria-label="Dashboard tool">
+        <a href="dashboards.html?tool=looker" data-tool="looker">Looker Studio</a>
+        <a href="dashboards.html?tool=powerbi" data-tool="powerbi">Power BI</a>
+      </div>
+    </div>
+    <div class="chips" id="chips" aria-label="Filter by topic"></div>
+    <div class="grid" id="gallery"></div>
+  </main>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Dashboard viewer">
+    <div class="lb-stage">
+      <div class="lb-bar">
+        <button class="icon-btn lb-close" type="button" aria-label="Back to gallery"></button>
+      </div>
+      <img alt="">
+      <button class="icon-btn lb-prev" type="button" aria-label="Previous"></button>
+      <button class="icon-btn lb-next" type="button" aria-label="Next"></button>
+    </div>
+    <aside class="lb-info">
+      <span class="tagline">Details</span>
+      <h2 data-f="title"></h2>
+      <p class="cat-name" data-f="cat"></p>
+      <dl>
+        <dt>Tool</dt><dd data-f="tool"></dd>
+        <dt>Topic</dt><dd data-f="topic"></dd>
+        <dt>Built by</dt><dd>Xtract Studio</dd>
+      </dl>
+      <a class="btn btn-primary" data-f="link" href="#" target="_blank" rel="noopener">Open live dashboard
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <p class="note">Opens the interactive report in a new tab. Data is anonymised or sample data.</p>
+      <p class="counter" data-f="count"></p>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Shijith Pulikkal · Xtract Studio</span>
+      <span><a href="index.html">Back to portfolio</a> · <a href="contact.html">Contact</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

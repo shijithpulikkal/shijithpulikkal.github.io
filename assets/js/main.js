@@ -1,229 +1,128 @@
-/**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+/* Renders the home page categories and the dashboard gallery + lightbox. Data lives in data.js. */
+(function () {
+  const ICON = {
+    ext: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>',
+    left: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
+    right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>',
+    info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+  };
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const CATS = window.CATEGORIES || [];
+  const DASH = window.DASHBOARDS || [];
 
-(function() {
-  "use strict";
-
-  /**
-   * Header toggle
-   */
-  const headerToggleBtn = document.querySelector('.header-toggle');
-
-  function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
+  /* ---------- Home: fan + category grid ---------- */
+  const fan = document.getElementById('fan');
+  if (fan) {
+    fan.innerHTML = CATS.map(c => {
+      const ext = c.kind === 'album';
+      return `<a href="${esc(c.url)}"${ext ? ' target="_blank" rel="noopener"' : ''} aria-label="${esc(c.title)}">
+        <img src="${esc(c.cover)}" alt="" loading="eager"><span>${esc(c.title)}</span></a>`;
+    }).join('');
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.header-show')) {
-        headerToggle();
-      }
-    });
-
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
-
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+  const grid = document.getElementById('cat-grid');
+  if (grid) {
+    grid.innerHTML = CATS.map(c => {
+      const ext = c.kind === 'album';
+      const label = ext ? 'Google Photos album' : `${c.count} live dashboards`;
+      const go = ext ? `Open album ${ICON.ext}` : `View gallery ${ICON.arrow}`;
+      return `<a class="cat" href="${esc(c.url)}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+        <div class="thumb"><img src="${esc(c.cover)}" alt="${esc(c.title)} sample" loading="lazy"></div>
+        <span class="pill">${ext ? 'Album' : 'Dashboards'}</span>
+        <div class="body"><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p>
+        <div class="meta"><span>${label}</span><span class="go">${go}</span></div></div></a>`;
+    }).join('');
   }
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
+  /* ---------- Dashboards gallery ---------- */
+  const gal = document.getElementById('gallery');
+  if (!gal) return;
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  const params = new URLSearchParams(location.search);
+  const tool = params.get('tool') === 'powerbi' ? 'powerbi' : 'looker';
+  const toolName = tool === 'powerbi' ? 'Power BI' : 'Looker Studio';
+  const items = DASH.filter(d => d.tool === tool);
+  let filter = 'All';
+  let view = items;
+
+  document.title = `${toolName} Dashboards · Shijith Pulikkal`;
+  document.getElementById('gal-title').textContent = `${toolName} Dashboards`;
+  document.getElementById('gal-sub').textContent =
+    `${items.length} dashboards · every one opens a live, clickable report · data is anonymised or sample data`;
+  document.querySelectorAll('.switch a').forEach(a => a.setAttribute('aria-current', a.dataset.tool === tool ? 'true' : 'false'));
+
+  // filter chips, ordered by count
+  const counts = items.reduce((m, d) => (m[d.cat] = (m[d.cat] || 0) + 1, m), {});
+  const cats = ['All', ...Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b))];
+  const chips = document.getElementById('chips');
+  chips.innerHTML = cats.map(c =>
+    `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${c === 'All'}">${esc(c)}<span class="n">${c === 'All' ? items.length : counts[c]}</span></button>`
+  ).join('');
+  chips.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    filter = b.dataset.cat;
+    chips.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    render();
   });
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
+  function render() {
+    view = filter === 'All' ? items : items.filter(d => d.cat === filter);
+    gal.innerHTML = view.map((d, i) =>
+      `<button class="tile" type="button" data-i="${i}" aria-label="Open ${esc(d.title)}">
+        <img src="${esc(d.img)}" alt="${esc(d.title)} ${toolName} dashboard" loading="lazy" width="${d.w}" height="${d.h}">
+        <span class="cap"><small>${esc(d.cat)}</small><b>${esc(d.title)}</b></span></button>`
+    ).join('');
   }
-  window.addEventListener('load', aosInit);
+  render();
 
-  /**
-   * Init typed.js
-   */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
+  /* ---------- Lightbox ---------- */
+  const lb = document.getElementById('lb');
+  const lbImg = lb.querySelector('.lb-stage img');
+  let cur = 0, lastFocus = null;
+
+  function show(i) {
+    cur = (i + view.length) % view.length;
+    const d = view[cur];
+    lbImg.src = d.img; lbImg.alt = `${d.title} ${toolName} dashboard`;
+    lb.querySelector('[data-f=title]').textContent = d.title;
+    lb.querySelector('[data-f=cat]').textContent = d.cat;
+    lb.querySelector('[data-f=tool]').textContent = toolName;
+    lb.querySelector('[data-f=topic]').textContent = d.cat;
+    lb.querySelector('[data-f=link]').href = d.url;
+    lb.querySelector('[data-f=count]').textContent = `${cur + 1} of ${view.length}`;
+    // preload neighbours
+    [cur + 1, cur - 1].forEach(j => { const n = view[(j + view.length) % view.length]; if (n) new Image().src = n.img; });
   }
-
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    lb.querySelector('.lb-close').focus();
+  }
+  function close() {
+    lb.classList.remove('open'); document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  gal.addEventListener('click', e => { const t = e.target.closest('.tile'); if (t) open(+t.dataset.i); });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.lb-next').addEventListener('click', () => show(cur + 1));
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  // swipe on touch
+  let sx = null;
+  lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
   });
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
-  });
-
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
-
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
-    }
-  });
-
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
-
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
-
+  // inject icons
+  lb.querySelector('.lb-close').innerHTML = ICON.back;
+  lb.querySelector('.lb-prev').innerHTML = ICON.left;
+  lb.querySelector('.lb-next').innerHTML = ICON.right;
 })();
