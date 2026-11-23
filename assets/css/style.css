@@ -244,6 +244,11 @@ footer a:hover { color: var(--yellow); }
 .switch { display: inline-flex; gap: 4px; padding: 4px; margin-top: 20px; border-radius: 999px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); }
 .switch a { padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); }
 .switch a[aria-current="true"] { background: var(--yellow); color: var(--midnight); }
+@media (max-width: 640px) {
+  .switch { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .switch::-webkit-scrollbar { display: none; }
+  .switch a { white-space: nowrap; padding: 7px 11px; font-size: 13px; }
+}
 .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px 0 30px; }
 .chip {
   font: inherit; font-size: 13.5px; font-weight: 600; padding: 7px 14px; border-radius: 999px; cursor: pointer;

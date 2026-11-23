@@ -53,6 +53,25 @@ window.CATEGORIES = [
   "blurb": "ChatGPT Ads performance portal built in Softr, with spend, clicks, conversions and ad-level reporting."
  },
  {
+  "id": "html",
+  "title": "HTML Dashboards",
+  "kind": "app",
+  "url": "https://xtractdesignstudio.github.io/public/ga4-pulse-dashboard.html",
+  "cover": "assets/covers/html.webp",
+  "blurb": "Pulse: a hand-built HTML dashboard reading live from the GA4 Data API, with KPIs, trends, channels, devices and real-time users.",
+  "hero": false
+ },
+ {
+  "id": "claude",
+  "title": "Claude Dashboards",
+  "kind": "dashboards",
+  "url": "dashboards.html?tool=claude",
+  "cover": "assets/covers/claude.webp",
+  "blurb": "Reports and dashboards built with Claude: an automated GA4 monthly client report and an ecommerce dashboard on BigQuery.",
+  "hero": false,
+  "count": 2
+ },
+ {
   "id": "illustrations",
   "title": "Illustrations & Wallpaper",
   "kind": "album",
@@ -738,5 +757,23 @@ window.DASHBOARDS = [
   "url": "",
   "w": 1600,
   "h": 862
+ },
+ {
+  "tool": "claude",
+  "title": "GA4 Monthly Performance Report",
+  "cat": "GA4 report",
+  "img": "assets/dashboards/claude-ga4-monthly-report.webp",
+  "url": "claude/ga4-monthly-report.html",
+  "w": 1080,
+  "h": 1000
+ },
+ {
+  "tool": "claude",
+  "title": "Ecommerce Dashboard",
+  "cat": "BigQuery ecommerce",
+  "img": "assets/dashboards/claude-ecommerce-dashboard.webp",
+  "url": "https://claude.ai/artifact/G9g2zBYYRhUZAU4DcuVcbe",
+  "w": 1365,
+  "h": 710
  }
 ];

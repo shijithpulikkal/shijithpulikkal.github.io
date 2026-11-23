@@ -51,7 +51,7 @@
   if (!gal) return;
 
   const params = new URLSearchParams(location.search);
-  const TOOLS = { looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel' };
+  const TOOLS = { looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel', claude: 'Claude' };
   const tool = TOOLS[params.get('tool')] ? params.get('tool') : 'looker';
   const toolName = TOOLS[tool];
   const items = DASH.filter(d => d.tool === tool);
@@ -65,6 +65,9 @@
     ? `${items.length} dashboards · every one opens a live, clickable report · data is anonymised or sample data`
     : `${items.length} dashboards · click any one to view it full size · data is anonymised or sample data`;
   document.querySelectorAll('.switch a').forEach(a => a.setAttribute('aria-current', a.dataset.tool === tool ? 'true' : 'false'));
+  // on narrow screens the tab strip scrolls: bring the active tab into view
+  const sw = document.querySelector('.switch'), act = sw && sw.querySelector('[aria-current="true"]');
+  if (sw && act && sw.scrollWidth > sw.clientWidth) sw.scrollLeft = act.offsetLeft - (sw.clientWidth - act.offsetWidth) / 2;
 
   // filter chips, ordered by count
   const counts = items.reduce((m, d) => (m[d.cat] = (m[d.cat] || 0) + 1, m), {});
