@@ -1,4 +1,5 @@
-/* Edit this file to add or change categories and dashboards. */
+/* Edit this file to add or change categories and dashboards.
+   "hero": false keeps a category out of the front-page card fan (it still shows in Work samples). */
 window.CATEGORIES = [
  {
   "id": "looker",
@@ -57,7 +58,8 @@ window.CATEGORIES = [
   "kind": "album",
   "url": "https://photos.app.goo.gl/bzwWhcKsU6QxHYPH9",
   "cover": "assets/covers/illustrations.webp",
-  "blurb": "Vector illustrations, icon art and 3D wallpaper concepts."
+  "blurb": "Vector illustrations, icon art and 3D wallpaper concepts.",
+  "hero": false
  },
  {
   "id": "branding",
@@ -65,7 +67,8 @@ window.CATEGORIES = [
   "kind": "album",
   "url": "https://photos.app.goo.gl/TsWAumEKUmp6vTY36",
   "cover": "assets/covers/branding.webp",
-  "blurb": "Logos, print, packaging, corporate gifts and marketing collateral."
+  "blurb": "Logos, print, packaging, corporate gifts and marketing collateral.",
+  "hero": false
  },
  {
   "id": "photography",
@@ -73,7 +76,8 @@ window.CATEGORIES = [
   "kind": "album",
   "url": "https://photos.app.goo.gl/sdwx2qpTQ12Epc4T7",
   "cover": "assets/covers/photography.webp",
-  "blurb": "Nature, wildlife, festivals and everyday Kerala, shot through my lens."
+  "blurb": "Nature, wildlife, festivals and everyday Kerala, shot through my lens.",
+  "hero": false
  }
 ];
 

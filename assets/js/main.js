@@ -26,8 +26,9 @@
   if (fan) {
     // spread any number of cards evenly; rotation and lift follow a repeating pattern
     const ROT = [-12, -7, -3, 2, 5, -2, 7, -5, 10], LIFT = [10, -4, 4, -6, 6, -8, 2, -5, 4];
-    const n = CATS.length, step = n > 1 ? 79 / (n - 1) : 0, mid = (n - 1) / 2;
-    fan.innerHTML = CATS.map((c, i) => {
+    const HERO = CATS.filter(c => c.hero !== false);
+    const n = HERO.length, step = n > 1 ? 79 / (n - 1) : 0, mid = (n - 1) / 2;
+    fan.innerHTML = HERO.map((c, i) => {
       const style = `--x:${(1 + i * step).toFixed(2)}%;--r:${ROT[i % ROT.length]}deg;--y:${LIFT[i % LIFT.length]}%;--z:${Math.round(n - Math.abs(i - mid))}`;
       return `<a href="${esc(c.url)}"${target(c)} aria-label="${esc(c.title)}" style="${style}">
         <img src="${esc(c.cover)}" alt="" loading="eager"><span>${esc(c.title)}</span></a>`;
