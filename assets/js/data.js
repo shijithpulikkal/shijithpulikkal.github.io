@@ -26,7 +26,6 @@ window.CATEGORIES = [
   "url": "dashboards.html?tool=tableau",
   "cover": "assets/covers/tableau.webp",
   "blurb": "Interactive Tableau Public dashboards: executive KPIs, HR analytics and airline customer reviews.",
-  "hero": false,
   "count": 3
  },
  {
@@ -60,7 +59,8 @@ window.CATEGORIES = [
   "kind": "app",
   "url": "https://ivory4923.mysoftr.app/",
   "cover": "assets/covers/softr.webp",
-  "blurb": "ChatGPT Ads performance portal built in Softr, with spend, clicks, conversions and ad-level reporting."
+  "blurb": "ChatGPT Ads performance portal built in Softr, with spend, clicks, conversions and ad-level reporting.",
+  "hero": false
  },
  {
   "id": "html",
