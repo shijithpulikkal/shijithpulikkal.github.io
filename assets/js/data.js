@@ -775,5 +775,41 @@ window.DASHBOARDS = [
   "url": "https://claude.ai/artifact/G9g2zBYYRhUZAU4DcuVcbe",
   "w": 1365,
   "h": 710
+ },
+ {
+  "tool": "base44",
+  "title": "Brightline Solar Marketing Overview",
+  "cat": "Marketing data app",
+  "img": "assets/dashboards/app-base44.webp",
+  "url": "https://brightline-solar-flow.base44.app",
+  "w": 1600,
+  "h": 713
+ },
+ {
+  "tool": "lovable",
+  "title": "Brightline Paid Search Performance",
+  "cat": "Paid search",
+  "img": "assets/dashboards/app-lovable.webp",
+  "url": "https://brightline-paid-dashboard.lovable.app/",
+  "w": 1410,
+  "h": 794
+ },
+ {
+  "tool": "softr",
+  "title": "ChatGPT Ads Performance",
+  "cat": "ChatGPT Ads",
+  "img": "assets/dashboards/app-softr.webp",
+  "url": "https://ivory4923.mysoftr.app/",
+  "w": 1250,
+  "h": 845
+ },
+ {
+  "tool": "html",
+  "title": "Pulse GA4 Live Dashboard",
+  "cat": "GA4 Data API",
+  "img": "assets/dashboards/app-html.webp",
+  "url": "https://xtractdesignstudio.github.io/public/ga4-pulse-dashboard.html",
+  "w": 1384,
+  "h": 896
  }
 ];

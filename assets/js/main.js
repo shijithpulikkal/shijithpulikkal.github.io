@@ -51,7 +51,10 @@
   if (!gal) return;
 
   const params = new URLSearchParams(location.search);
-  const TOOLS = { looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel', claude: 'Claude' };
+  const TOOLS = {
+    looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel', claude: 'Claude',
+    base44: 'Base44', lovable: 'Lovable', softr: 'Softr', html: 'HTML'
+  };
   const tool = TOOLS[params.get('tool')] ? params.get('tool') : 'looker';
   const toolName = TOOLS[tool];
   const items = DASH.filter(d => d.tool === tool);
@@ -61,9 +64,10 @@
 
   document.title = `${toolName} Dashboards · Shijith Pulikkal`;
   document.getElementById('gal-title').textContent = `${toolName} Dashboards`;
+  const n = items.length, nLabel = `${n} dashboard${n === 1 ? '' : 's'}`;
   document.getElementById('gal-sub').textContent = hasLive
-    ? `${items.length} dashboards · every one opens a live, clickable report · data is anonymised or sample data`
-    : `${items.length} dashboards · click any one to view it full size · data is anonymised or sample data`;
+    ? `${nLabel} · ${n === 1 ? 'opens' : 'every one opens'} a live, clickable report · data is anonymised or sample data`
+    : `${nLabel} · click any one to view it full size · data is anonymised or sample data`;
   document.querySelectorAll('.switch a').forEach(a => a.setAttribute('aria-current', a.dataset.tool === tool ? 'true' : 'false'));
   // on narrow screens the tab strip scrolls: bring the active tab into view
   const sw = document.querySelector('.switch'), act = sw && sw.querySelector('[aria-current="true"]');
@@ -73,6 +77,7 @@
   const counts = items.reduce((m, d) => (m[d.cat] = (m[d.cat] || 0) + 1, m), {});
   const cats = ['All', ...Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b))];
   const chips = document.getElementById('chips');
+  chips.hidden = cats.length <= 2; // only one topic: filter buttons add nothing
   chips.innerHTML = cats.map(c =>
     `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${c === 'All'}">${esc(c)}<span class="n">${c === 'All' ? items.length : counts[c]}</span></button>`
   ).join('');
@@ -85,6 +90,7 @@
 
   function render() {
     view = filter === 'All' ? items : items.filter(d => d.cat === filter);
+    gal.classList.toggle('single', view.length === 1);
     gal.innerHTML = view.map((d, i) =>
       `<button class="tile" type="button" data-i="${i}" aria-label="Open ${esc(d.title)}">
         <img src="${esc(d.img)}" alt="${esc(d.title)} ${toolName} dashboard" loading="lazy" width="${d.w}" height="${d.h}">
