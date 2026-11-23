@@ -20,6 +20,16 @@ window.CATEGORIES = [
   "count": 7
  },
  {
+  "id": "tableau",
+  "title": "Tableau Dashboards",
+  "kind": "dashboards",
+  "url": "dashboards.html?tool=tableau",
+  "cover": "assets/covers/tableau.webp",
+  "blurb": "Interactive Tableau Public dashboards: executive KPIs, HR analytics and airline customer reviews.",
+  "hero": false,
+  "count": 3
+ },
+ {
   "id": "sheets",
   "title": "Google Sheets & Excel Dashboards",
   "kind": "dashboards",
@@ -829,5 +839,32 @@ window.DASHBOARDS = [
   "url": "https://public.flourish.studio/visualisation/16878760/",
   "w": 1040,
   "h": 672
+ },
+ {
+  "tool": "tableau",
+  "title": "Xtract Executive Overview",
+  "cat": "Executive KPIs",
+  "img": "assets/dashboards/tableau-xtract-executive-overview.webp",
+  "url": "https://public.tableau.com/app/profile/shijith/viz/XtractExecutiveOverview/ExecutiveOverview",
+  "w": 1366,
+  "h": 766
+ },
+ {
+  "tool": "tableau",
+  "title": "HR Analytics Dashboard",
+  "cat": "HR analytics",
+  "img": "assets/dashboards/tableau-hr-analytics-dashboard.webp",
+  "url": "https://public.tableau.com/app/profile/shijith/viz/HRAnalyticsDashboard-XtractStudio/HRDashboard",
+  "w": 1580,
+  "h": 894
+ },
+ {
+  "tool": "tableau",
+  "title": "British Airways Reviews",
+  "cat": "Customer reviews",
+  "img": "assets/dashboards/tableau-british-airways-reviews.webp",
+  "url": "https://public.tableau.com/app/profile/shijith/viz/BritishAirwaysReviews-XtractStudio/CustomerReviews",
+  "w": 1366,
+  "h": 766
  }
 ];
