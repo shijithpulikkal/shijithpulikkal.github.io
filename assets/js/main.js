@@ -53,7 +53,7 @@
   const params = new URLSearchParams(location.search);
   const TOOLS = {
     looker: 'Looker Studio', powerbi: 'Power BI', sheets: 'Google Sheets & Excel', claude: 'Claude',
-    base44: 'Base44', lovable: 'Lovable', softr: 'Softr', html: 'HTML'
+    base44: 'Base44', lovable: 'Lovable', softr: 'Softr', html: 'HTML', animated: 'Animated'
   };
   const tool = TOOLS[params.get('tool')] ? params.get('tool') : 'looker';
   const toolName = TOOLS[tool];

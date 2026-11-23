@@ -62,6 +62,15 @@ window.CATEGORIES = [
   "hero": false
  },
  {
+  "id": "animated",
+  "title": "Animated Dashboards",
+  "kind": "app",
+  "url": "https://public.flourish.studio/visualisation/16878760/",
+  "cover": "assets/covers/animated.webp",
+  "blurb": "Animated data stories built in Flourish, like this bar chart race of company rankings over a decade.",
+  "hero": false
+ },
+ {
   "id": "claude",
   "title": "Claude Dashboards",
   "kind": "dashboards",
@@ -811,5 +820,14 @@ window.DASHBOARDS = [
   "url": "https://xtractdesignstudio.github.io/public/ga4-pulse-dashboard.html",
   "w": 1384,
   "h": 896
+ },
+ {
+  "tool": "animated",
+  "title": "Leaderboard History",
+  "cat": "Bar chart race",
+  "img": "assets/dashboards/animated-leaderboard-history.webp",
+  "url": "https://public.flourish.studio/visualisation/16878760/",
+  "w": 1040,
+  "h": 672
  }
 ];
