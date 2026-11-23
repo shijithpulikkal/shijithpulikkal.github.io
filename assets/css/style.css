@@ -83,11 +83,6 @@ a { color: inherit; text-decoration: none; }
 .hero-top .logo { width: 120px; flex: none; }
 .hero-top .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--aqua), rgba(104, 203, 219, .1)); position: relative; }
 .hero-top .rule::before { content: ""; position: absolute; left: 0; top: -4px; width: 9px; height: 9px; border-radius: 50%; background: var(--yellow); }
-/* Desktop: a 2px line that fades to 5% */
-@media (min-width: 641px) {
-  .hero-top .rule { height: 2px; min-height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--aqua), rgba(104, 203, 219, .05)); }
-  .hero-top .rule::before { top: -3.5px; }
-}
 .side-url {
   position: absolute; left: calc(var(--pad) - 4px); top: 210px; writing-mode: vertical-rl;
   font-size: 11px; letter-spacing: .4em; color: var(--muted); text-transform: lowercase;
@@ -116,7 +111,7 @@ a { color: inherit; text-decoration: none; }
   position: relative; height: clamp(250px, 34vw, 420px); margin: clamp(26px, 4vw, 48px) auto 0; max-width: 1100px;
 }
 .fan a {
-  position: absolute; bottom: 0; width: clamp(130px, 19vw, 230px); aspect-ratio: 3 / 4;
+  position: absolute; bottom: 0; width: clamp(130px, 18vw, 215px); aspect-ratio: 3 / 4;
   border-radius: 20px; overflow: hidden; background: var(--teal);
   border: 3px solid rgba(255, 255, 255, .92);
   box-shadow: 0 24px 50px rgba(0, 0, 0, .45);
@@ -131,18 +126,9 @@ a { color: inherit; text-decoration: none; }
 }
 .fan a:hover, .fan a:focus-visible { z-index: 10 !important; box-shadow: 0 30px 70px rgba(0, 0, 0, .6), 0 0 0 3px var(--yellow); }
 .fan a:hover span, .fan a:focus-visible span { opacity: 1; transform: none; }
-.fan a:nth-child(1) { left: 2%;  transform: rotate(-12deg) translateY(10%); z-index: 1; }
-.fan a:nth-child(2) { left: 17%; transform: rotate(-7deg) translateY(-6%); z-index: 2; }
-.fan a:nth-child(3) { left: 33%; transform: rotate(-2deg) translateY(2%); z-index: 3; }
-.fan a:nth-child(4) { left: 48%; transform: rotate(3deg) translateY(6%); z-index: 4; }
-.fan a:nth-child(5) { left: 63%; transform: rotate(-3deg) translateY(-8%); z-index: 3; }
-.fan a:nth-child(6) { left: 78%; transform: rotate(8deg) translateY(4%); z-index: 2; }
-.fan a:nth-child(1):hover { transform: rotate(-12deg) translateY(2%) scale(1.05); }
-.fan a:nth-child(2):hover { transform: rotate(-7deg) translateY(-14%) scale(1.05); }
-.fan a:nth-child(3):hover { transform: rotate(-2deg) translateY(-6%) scale(1.05); }
-.fan a:nth-child(4):hover { transform: rotate(3deg) translateY(-2%) scale(1.05); }
-.fan a:nth-child(5):hover { transform: rotate(-3deg) translateY(-16%) scale(1.05); }
-.fan a:nth-child(6):hover { transform: rotate(8deg) translateY(-4%) scale(1.05); }
+/* position, rotation, lift and stacking come from --x/--r/--y/--z set in main.js */
+.fan a { left: var(--x, 0%); transform: rotate(var(--r, 0deg)) translateY(var(--y, 0%)); z-index: var(--z, 1); }
+.fan a:hover, .fan a:focus-visible { transform: rotate(var(--r, 0deg)) translateY(calc(var(--y, 0%) - 9%)) scale(1.05); }
 .swipe-hint { display: none; }
 /* touch screens have no hover: always show the card titles */
 @media (hover: none) {

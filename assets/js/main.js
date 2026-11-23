@@ -13,25 +13,35 @@
   const DASH = window.DASHBOARDS || [];
 
   /* ---------- Home: fan + category grid ---------- */
+  // album = Google Photos album, app = live web app, dashboards = gallery page on this site
+  const KIND = {
+    album: { ext: true, pill: 'Album', label: () => 'Google Photos album', go: `Open album ${ICON.ext}` },
+    app: { ext: true, pill: 'Live app', label: () => 'Interactive web app', go: `Open app ${ICON.ext}` },
+    dashboards: { ext: false, pill: 'Dashboards', label: c => `${c.count} dashboards`, go: `View gallery ${ICON.arrow}` }
+  };
+  const kindOf = c => KIND[c.kind] || KIND.dashboards;
+  const target = c => kindOf(c).ext ? ' target="_blank" rel="noopener"' : '';
+
   const fan = document.getElementById('fan');
   if (fan) {
-    fan.innerHTML = CATS.map(c => {
-      const ext = c.kind === 'album';
-      return `<a href="${esc(c.url)}"${ext ? ' target="_blank" rel="noopener"' : ''} aria-label="${esc(c.title)}">
+    // spread any number of cards evenly; rotation and lift follow a repeating pattern
+    const ROT = [-12, -7, -3, 2, 5, -2, 7, -5, 10], LIFT = [10, -4, 4, -6, 6, -8, 2, -5, 4];
+    const n = CATS.length, step = n > 1 ? 79 / (n - 1) : 0, mid = (n - 1) / 2;
+    fan.innerHTML = CATS.map((c, i) => {
+      const style = `--x:${(1 + i * step).toFixed(2)}%;--r:${ROT[i % ROT.length]}deg;--y:${LIFT[i % LIFT.length]}%;--z:${Math.round(n - Math.abs(i - mid))}`;
+      return `<a href="${esc(c.url)}"${target(c)} aria-label="${esc(c.title)}" style="${style}">
         <img src="${esc(c.cover)}" alt="" loading="eager"><span>${esc(c.title)}</span></a>`;
     }).join('');
   }
   const grid = document.getElementById('cat-grid');
   if (grid) {
     grid.innerHTML = CATS.map(c => {
-      const ext = c.kind === 'album';
-      const label = ext ? 'Google Photos album' : `${c.count} live dashboards`;
-      const go = ext ? `Open album ${ICON.ext}` : `View gallery ${ICON.arrow}`;
-      return `<a class="cat" href="${esc(c.url)}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+      const k = kindOf(c);
+      return `<a class="cat" href="${esc(c.url)}"${target(c)}>
         <div class="thumb"><img src="${esc(c.cover)}" alt="${esc(c.title)} sample" loading="lazy"></div>
-        <span class="pill">${ext ? 'Album' : 'Dashboards'}</span>
+        <span class="pill">${k.pill}</span>
         <div class="body"><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p>
-        <div class="meta"><span>${label}</span><span class="go">${go}</span></div></div></a>`;
+        <div class="meta"><span>${k.label(c)}</span><span class="go">${k.go}</span></div></div></a>`;
     }).join('');
   }
 

@@ -28,6 +28,30 @@ window.CATEGORIES = [
   "count": 10
  },
  {
+  "id": "base44",
+  "title": "Base44 Dashboards",
+  "kind": "app",
+  "url": "https://brightline-solar-flow.base44.app",
+  "cover": "assets/covers/base44.webp",
+  "blurb": "Custom marketing data app built in Base44: blended leads, spend and cost per lead across ads, CallRail and analytics."
+ },
+ {
+  "id": "lovable",
+  "title": "Lovable Dashboards",
+  "kind": "app",
+  "url": "https://brightline-paid-dashboard.lovable.app/",
+  "cover": "assets/covers/lovable.webp",
+  "blurb": "Paid search performance app built in Lovable, comparing Google, Bing and ChatGPT Ads with date and channel filters."
+ },
+ {
+  "id": "softr",
+  "title": "Softr Dashboards",
+  "kind": "app",
+  "url": "https://ivory4923.mysoftr.app/",
+  "cover": "assets/covers/softr.webp",
+  "blurb": "ChatGPT Ads performance portal built in Softr, with spend, clicks, conversions and ad-level reporting."
+ },
+ {
   "id": "illustrations",
   "title": "Illustrations & Wallpaper",
   "kind": "album",
