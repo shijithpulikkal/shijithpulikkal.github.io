@@ -308,3 +308,9 @@ footer a:hover { color: var(--yellow); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Desktop: a 2px line that fades to 5% */
+@media (min-width: 641px) {
+  .hero-top .rule { height: 2px; min-height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--aqua), rgba(104, 203, 219, .05)); }
+  .hero-top .rule::before { top: -3.5px; }
+}
